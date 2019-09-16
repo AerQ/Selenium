@@ -44,9 +44,7 @@ public class SeleniumWebParsing {
             driver.findElement(By.xpath("//div[@class='familyData-module__item__3txes']//div//label//span[@class='checkbox-module__fakeInput__1p5us']")).clear();
             driver.findElement(By.xpath("//div[@class='familyData-module__item__3txes']//div//label//span[@class='checkbox-module__fakeInput__1p5us']")).click();
 
-            //            рандом почтовый индекс
-//            driver.findElement(By.xpath("//input[@data-qaid='post_index_input']")).clear();
-//            driver.findElement(By.xpath("//input[@data-qaid='post_index_input']")).sendKeys(regUsProf);
+          
             driver.findElement(By.xpath("//div//button[@data-qaid='save_profile']")).submit();
             driver.navigate().to(url);
         } catch (Exception e) {
