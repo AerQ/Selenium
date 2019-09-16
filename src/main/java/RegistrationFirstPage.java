@@ -1,18 +1,18 @@
 import java.util.Date;
 import java.util.Random;
 
-public class RegistrationRandomValues {
+public class RegistrationFirstPage {
     private String customerName;
     private String email;
     private String password;
 
-    public RegistrationRandomValues(String customerName, String email, String password) {
+    public RegistrationFirstPage(String customerName, String email, String password) {
         this.customerName = customerName;
         this.email = email;
         this.password = password;
     }
 
-    public RegistrationRandomValues() {
+    public RegistrationFirstPage() {
         customerName = getCustomerName(6);
         email = getEmail();
         password = getPassword(1, 9999);
