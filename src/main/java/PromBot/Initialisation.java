@@ -9,6 +9,7 @@ public class Initialisation {
         this.driver = driver;
     }
 
+    
     public PromSecondPage info(){
         PromSecondPage rUpB = new PromSecondPage(driver);
 
