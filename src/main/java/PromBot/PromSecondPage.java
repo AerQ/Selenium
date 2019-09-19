@@ -7,12 +7,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class PromSecondPage {
     private WebDriver driver;
 //    private final long timeoutInSeconds = 30;
 //    private WebDriverWait wait = new WebDriverWait(driver ,timeoutInSeconds);
-private WebDriverWait wait;
+
     public PromSecondPage(WebDriver driver){
         this.driver = driver;
 
@@ -42,7 +43,9 @@ private WebDriverWait wait;
     private By saveButton = By.xpath("//button[@type='button' and @data-qaid='save_profile']");
 
     public PromSecondPage getNick(String nickName) {
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(nickName)));
+//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(nickName)));
+        driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+
         driver.findElement(nickField).sendKeys(nickName);
         return this;
     }
