@@ -1,12 +1,15 @@
 package PromBot;
 
+import org.openqa.selenium.WebDriver;
+
 import java.util.Date;
 import java.util.Random;
 
 public class LoadRandomValuesToSecondPage {
+    private WebDriver driver;
 
-
-    public LoadRandomValuesToSecondPage() {
+    public LoadRandomValuesToSecondPage(WebDriver driver) {
+        this.driver = driver;
     }
 
     public String getNickName() {

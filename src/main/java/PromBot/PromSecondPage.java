@@ -11,12 +11,9 @@ import java.util.concurrent.TimeUnit;
 
 public class PromSecondPage {
     private WebDriver driver;
-//    private final long timeoutInSeconds = 30;
-//    private WebDriverWait wait = new WebDriverWait(driver ,timeoutInSeconds);
 
     public PromSecondPage(WebDriver driver){
         this.driver = driver;
-
     }
 
     private By nickField = By.xpath("//input[@class='b-textbox b-form-unit__field' and @data-qaid='nickname_input']");
@@ -24,16 +21,17 @@ public class PromSecondPage {
     private By patronymicField = By.xpath("//div[@class='b-grid__col'][4]//input[@data-qaid='middle_name_input']");
     private By genderManField = By.xpath("//span[text()='Мужчина']/preceding-sibling::input");
     private By genderWomanField = By.xpath("//span[text()='Женщина']/preceding-sibling::input");
-    private By marriageCheckBox = By.xpath("//span[text()='В браке']/preceding-sibling::spinput");
+    private By marriageCheckBox = By.xpath("//span[text()='В браке']/preceding-sibling::input");
     private By haveChildrenCheckBox = By.xpath("//span[text()='Есть дети']/preceding-sibling::input");
-    private By dayOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='День']");
-    private By daysOfBirthDayFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
-    private By monthOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='Месяц']");
-    private By monthsOfBirthDayFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
-    private By yearOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='Год']");
-    private By yearsOfBirthDayFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
-    private By cityFieldClick = By.xpath("//div//span[@class='dropdown__value__ghyNB' and text()='Киев']");
-    private By cityesFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
+//    private By dayOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='День']");
+//    private By daysOfBirthDayFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
+//    private By monthOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='Месяц']");
+//    private By monthsOfBirthDayFieldClick = By.xpath("//ul[@class='dropdown__listWrapper__3re0R']//li");/*findElements*//*foreach->click*/
+//    private By yearOfBirthDayFieldClick = By.xpath("//div[@class='dropdown__root__18yaG']//span[text()='Год']");
+//    private By yearsOfBirthDayFieldClick = By.xpath("//div[@data-qaid='dd_list_items']");/*findElements*//*foreach->click*/
+//    private By cityFieldClick = By.xpath("//div//span[@class='dropdown__value__ghyNB' and text()='Киев']");
+//    //div[@data-qaid='dd_list_items']//ul//li
+//    private By cityesFieldClick = By.xpath("//div[@data-qaid='dd_list_items']//ul//li");/*findElements*//*foreach->click*/
     private By mailAdressField = By.xpath("//input[@type='text' and @placeholder='Укажите ваш почтовый адрес']");
     private By mailIndexField = By.xpath("//input[@type='text' and @placeholder='Например: 49000']");
     private By mobilePhoneField = By.xpath("//input[@type='text' and @placeholder='Например: +38 039 1234567']");
@@ -43,8 +41,8 @@ public class PromSecondPage {
     private By saveButton = By.xpath("//button[@type='button' and @data-qaid='save_profile']");
 
     public PromSecondPage getNick(String nickName) {
-//        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(nickName)));
-        driver.manage().timeouts().pageLoadTimeout(120, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
 
         driver.findElement(nickField).sendKeys(nickName);
         return this;
@@ -77,50 +75,57 @@ public class PromSecondPage {
         }
         return this;
     }
-
-    public PromSecondPage getDay(String day) {
-        driver.findElement(dayOfBirthDayFieldClick).click();
-        List<WebElement> dayCheckBoxes = driver.findElements(daysOfBirthDayFieldClick);
-        for (WebElement days : dayCheckBoxes) {
-            if (days.equals(day)) {
-                days.click();
-            }
-        }
-        return this;
-    }
-
-    public PromSecondPage getMonth(String month) {
-        driver.findElement(monthOfBirthDayFieldClick).click();
-        List<WebElement> monthCheckBoxes = driver.findElements(monthsOfBirthDayFieldClick);
-        for (WebElement months : monthCheckBoxes) {
-            if (months.equals(month)) {
-                months.click();
-            }
-        }
-        return this;
-    }
-
-    public PromSecondPage getYear(String year) {
-        driver.findElement(yearOfBirthDayFieldClick).click();
-        List<WebElement> yearCheckBoxes = driver.findElements(yearsOfBirthDayFieldClick);
-        for (WebElement years : yearCheckBoxes) {
-            if (years.equals(year)) {
-                years.click();
-            }
-        }
-        return this;
-    }
-
-    public PromSecondPage getCity(String city) {
-        driver.findElement(cityFieldClick).click();
-        List<WebElement> citiesList = driver.findElements(cityesFieldClick);
-        for (WebElement cityes : citiesList) {
-            if (cityes.equals(city)) {
-                cityes.click();
-            }
-        }
-        return this;
-    }
+//
+//    public PromSecondPage getDay(String day) {
+////        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(String.valueOf(dayOfBirthDayFieldClick))));
+//        driver.findElement(dayOfBirthDayFieldClick).click();
+//        driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
+//        List<WebElement> dayCheckBoxes = driver.findElements(daysOfBirthDayFieldClick);
+//        for (WebElement days : dayCheckBoxes) {
+//            if (days.equals(day)) {
+//                days.click();
+//            }
+//        }
+//        return this;
+//    }
+//
+//    public PromSecondPage getMonth(String month) {
+//        driver.findElement(monthOfBirthDayFieldClick).click();
+//
+//        List<WebElement> monthCheckBoxes = driver.findElements(monthsOfBirthDayFieldClick);
+//        for (WebElement months : monthCheckBoxes) {
+//            if (months.equals(month)) {
+//                months.click();
+//            }
+//        }
+//        return this;
+//    }
+//
+//    public PromSecondPage getYear(String year) {
+//        driver.findElement(yearOfBirthDayFieldClick).click();
+////        driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
+//
+//        List<WebElement> yearCheckBoxes = driver.findElements(yearsOfBirthDayFieldClick);
+//        for (WebElement years : yearCheckBoxes) {
+//            if (years.equals(year)) {
+//                years.click();
+//            }
+//        }
+//        return this;
+//    }
+//
+//    public PromSecondPage getCity(String city) {
+//        driver.findElement(cityFieldClick).click();
+//        driver.manage().timeouts().implicitlyWait(4,TimeUnit.SECONDS);
+//
+//        List<WebElement> citiesList = driver.findElements(cityesFieldClick);
+//        for (WebElement cityes : citiesList) {
+//            if (cityes.equals(city)) {
+//                cityes.click();
+//            }
+//        }
+//        return this;
+//    }
 
     public PromSecondPage getMailAdress(String mail) {
         driver.findElement(mailAdressField).sendKeys(mail);
@@ -158,17 +163,17 @@ public class PromSecondPage {
     }
 
     public PromSecondPage saveProperties(String nickName, String secondName, String patronymic, String gender,
-                                         String status, String day, String month, String year, String city, String mail,
+                                         String status, String mail,
                                          String index, String phoneNumber, String description, String hobby, String interests) {
         this.getNick(nickName);
         this.getSecondName(secondName);
         this.getPatronymic(patronymic);
         this.getGender(gender);
         this.getStatus(status);
-        this.getDay(day);
-        this.getMonth(month);
-        this.getYear(year);
-        this.getCity(city);
+//        this.getDay(day);
+//        this.getMonth(month);
+//        this.getYear(year);
+//        this.getCity(city);
         this.getMailAdress(mail);
         this.getMailIndex(index);
         this.getMobilePhone(phoneNumber);

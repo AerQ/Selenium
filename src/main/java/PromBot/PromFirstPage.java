@@ -2,6 +2,7 @@ package PromBot;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import java.util.concurrent.TimeUnit;
 
 public class PromFirstPage {
     private WebDriver driver;
@@ -16,6 +17,7 @@ public class PromFirstPage {
 
 
     public PromFirstPage getLoginName(String userName){
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
         driver.findElement(loginField).sendKeys(userName);
         return this;
     }
