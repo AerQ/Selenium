@@ -24,7 +24,7 @@ public class Main extends Application{
 
         Group group = new Group();       // корневой узел
 //        FXMLLoader loader = new FXMLLoader(new File("C:/Users/Остап/IdeaProjects/Selenium/src/main/resources/FXML/myFirstApp.fxml").toURI().toURL());
-//        Parent roots = loader.load();
+//        Parent roots = loader.load();/
         Parent content = FXMLLoader.load(getClass().getResource("resources/myFirstApp.fxml"));
 //        Parent content = FXMLLoader.load(getClass().getResource("/myFirstApp.fxml"));
         BorderPane root= new BorderPane();
