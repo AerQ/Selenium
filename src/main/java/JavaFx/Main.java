@@ -22,11 +22,8 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws IOException {
 
-        Group group = new Group();       // корневой узел
-//        FXMLLoader loader = new FXMLLoader(new File("C:/Users/Остап/IdeaProjects/Selenium/src/main/resources/FXML/myFirstApp.fxml").toURI().toURL());
-//        Parent roots = loader.load();/
-        Parent content = FXMLLoader.load(getClass().getResource("resources/myFirstApp.fxml"));
-//        Parent content = FXMLLoader.load(getClass().getResource("/myFirstApp.fxml"));
+        Group group = new Group();
+        Parent content = FXMLLoader.load(getClass().getResource("/fxml/myFirstApp.fxml"));
         BorderPane root= new BorderPane();
         root.setCenter(content);
         group.getChildren().add(root);
